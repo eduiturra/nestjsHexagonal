@@ -1,0 +1,24 @@
+import { Injectable } from '@nestjs/common';
+import { ICommand, ofType, Saga } from '@nestjs/cqrs';
+import { Observable } from 'rxjs';
+import { delay, map } from 'rxjs/operators';
+import { UserUpdateCommand } from '../commands/impl/user-update.command';
+import { HeroKilledDragonEvent } from '../events/handlers/hero.handler';
+
+const itemId = '0';
+
+@Injectable()
+export class HeroesGameSagas {
+  @Saga()
+  dragonKilled = (events$: Observable<any>): Observable<ICommand> => {
+    return events$
+      .pipe(
+        ofType(HeroKilledDragonEvent),
+        delay(1000),
+        map(event => {
+          console.log('Inside [HeroesGameSagas] Saga');
+          return new UserUpdateCommand("data");
+        }),
+      );
+  }
+}

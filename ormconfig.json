@@ -1,0 +1,18 @@
+
+{
+    "type": "mysql",
+    "host": "db",
+    "port": 3306,
+    "username": "db_user",
+    "password": "db_user_pass",
+    "database": "app_db",
+    "logging": "true",
+    "logger": "file",
+    "entities": ["dist/infrastructure/database/mapper/*{.ts,.js}"],
+    "migrations": ["src/infrastructure/database/migrations/*{.ts}"],
+    "migrationsTableName": "migrations_typeorm",
+    "cli": {
+        "migrationsDir": "src/infrastructure/database/migrations"
+    }
+  }
+  

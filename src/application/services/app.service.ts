@@ -6,7 +6,7 @@ import { UserCreateCommand } from './commands/impl/user-create.command';
 export class AppService {
   constructor(private commandBus: CommandBus) {}
 
-  async killDragon() {
+  async userCreate() {
     return this.commandBus.execute(
       new UserCreateCommand('1' , 'sdsd')
     );

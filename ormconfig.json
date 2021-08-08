@@ -10,6 +10,7 @@
     "logger": "file",
     "entities": ["dist/infrastructure/database/mapper/*{.ts,.js}"],
     "migrations": ["src/infrastructure/database/migrations/*{.ts}"],
+    "synchronize": true,
     "migrationsTableName": "migrations_typeorm",
     "cli": {
         "migrationsDir": "src/infrastructure/database/migrations"

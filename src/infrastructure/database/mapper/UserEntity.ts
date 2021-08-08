@@ -21,15 +21,6 @@ export const UserEntity = new EntitySchema<User>({
   orderBy: {
     createdAt: 'ASC',
   },
-  relations: {
-    posts: {
-      type: 'one-to-many',
-      target: () => Post,
-      cascade: ['insert', 'update'],
-      onDelete: 'CASCADE',
-      inverseSide: 'user',
-    },
-  },
   indices: [
     {
       name: 'IDX_USERS',

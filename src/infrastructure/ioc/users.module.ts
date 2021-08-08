@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppService } from '../../application/app.service';
 import { CommandHandlers } from '../../application/commands/handlers';
 import { Commands } from '../../application/commands/impl';
@@ -11,7 +12,9 @@ import { UsersController } from '../../presentation/controllers/users.controller
 import { UsersRepository } from '../database/repositories/UsersRepository';
 import { SharedModule } from './shared.module';
 @Module({
-  imports: [CqrsModule,SharedModule],
+  imports: [CqrsModule,
+    SharedModule, 
+    TypeOrmModule.forFeature([UsersRepository])],
   controllers: [UsersController],
   providers: [
     ...Commands,
@@ -20,7 +23,6 @@ import { SharedModule } from './shared.module';
     HeroKilledDragonHandler,
     HeroesGameSagas,
     AppService,
-    { provide: IUsersRepository, useClass: UsersRepository },
-  ],
+    ],
 })
 export class UsersModule {}

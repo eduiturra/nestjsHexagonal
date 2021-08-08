@@ -2,16 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/typeorm';
 import { IUsersRepository } from '../../../application/ports/IUsersRepository';
 import { User } from '../../../domain/models/User';
-import { Connection } from 'typeorm';
+import { Connection, EntityRepository, Repository } from 'typeorm';
 import { UserEntity } from '../mapper/UserEntity';
 
-
-import { BaseRepository } from './BaseRepository';
-
-@Injectable()
-export class UsersRepository extends BaseRepository<User>
+@EntityRepository(User)
+export class UsersRepository extends Repository<User>
   implements IUsersRepository {
-  constructor(@InjectConnection() connection: Connection) {
-    super(connection, UserEntity);
-  }
+
 }

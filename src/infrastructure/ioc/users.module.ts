@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppService } from '../../application/app.service';
+import { AppService } from '../../application/services/app.service';
 import { CommandHandlers } from '../../application/commands/handlers';
 import { Commands } from '../../application/commands/impl';
 import { HeroKilledDragonEvent } from '../../application/events/handlers/hero.handler';

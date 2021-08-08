@@ -9,7 +9,7 @@ import { CommandHandlers } from './../src/application/commands/handlers';
 import { HeroKilledDragonEvent } from './../src/application/events/handlers/hero.handler';
 import { HeroKilledDragonHandler } from './../src/application/events/impl/hero.event';
 import { HeroesGameSagas } from './../src/application/sagas/hero.saga';
-import { AppService } from './../src/application/app.service';
+import { AppService } from '../src/application/services/app.service';
 import { IUsersRepository } from './../src/application/ports/IUsersRepository';
 import { UsersModule } from '../src/infrastructure/ioc/users.module';
 

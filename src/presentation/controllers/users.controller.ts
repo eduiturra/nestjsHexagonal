@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from '../../application/app.service';
+import { AppService } from '../../application/services/app.service';
 
 @Controller('users')
 export class UsersController {
@@ -7,7 +7,7 @@ export class UsersController {
 
   @Get()
   getHello(): string {
-    this.appService.killDragon();
+    this.appService.userCreate();
     return '';
   }
 }
